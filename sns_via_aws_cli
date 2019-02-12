@@ -1,0 +1,21 @@
+# Create a Topic
+aws sns create-topic --name "my-demo-sns-topic"
+
+# Subscribe to a Topic
+aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456667:my-demo-sns-topic --protocol email --notification-endpoint test@gmail.com
+
+# Publish to a Topic
+aws sns publish --topic-arn arn:aws:sns:us-west-2:1234567:my-demo-sns-topic --message "hello from sns"
+
+# To list all the subscriptions
+aws sns list-subscriptions
+
+# Unsubscribe from a Topic
+aws sns unsubscribe --subscription-arn arn:aws:sns:us-west-2:1234567899:my-demo-sns-topic:f28124be-850b-4a2e-8d3e-a3dc4f7cca1a
+
+# Delete a topic
+aws sns delete-topic --topic-arn arn:aws:sns:us-west-2:1234567788:my-demo-sns-topic
+
+# List a topic
+aws sns list-topics
+
