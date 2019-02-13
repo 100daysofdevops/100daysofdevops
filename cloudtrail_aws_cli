@@ -1,0 +1,20 @@
+# Create Trail(Single Region)
+aws cloudtrail create-trail --name my-test-cloudtrail --s3-bucket-name mytests3bucketforcloudtrail
+
+# Create Trail(That applies to multi-region)
+aws cloudtrail create-trail --name my-test-cloudtrail-multiregion --s3-bucket-name mytests3bucketforcloudtrail --is-multi-region-trail
+
+# To get the status/list all the trails
+aws cloudtrail describe-trails
+
+# Start logging for the trail
+aws cloudtrail start-logging --name my-test-cloudtrail
+
+# To verify if logging is enabled
+aws cloudtrail get-trail-status --name my-test-cloudtrail
+
+# To enable log file validation
+aws cloudtrail create-trail --name my-test-cloudtrail-multiregion-logging --s3-bucket-name mytests3bucketforcloudtrail --is-multi-region-trail --enable-log-file-validation
+
+# To delete a particular trail
+aws cloudtrail delete-trail --name my-test-cloudtrail-multiregion-logging
