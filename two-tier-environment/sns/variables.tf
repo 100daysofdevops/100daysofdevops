@@ -1,0 +1,1 @@
+variable "alarm_actions" {}
