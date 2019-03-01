@@ -11,3 +11,5 @@ variable "private_cidrs" {
 variable "my_public_key" {}
 variable "instance_type" {}
 variable "instance_count" {}
+
+variable "alarm_actions" {}

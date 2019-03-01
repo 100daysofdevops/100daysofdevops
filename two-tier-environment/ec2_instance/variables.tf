@@ -6,3 +6,5 @@ variable "security_group" {}
 variable "subnet_id" {
   type = "list"
 }
+
+variable "alarm_actions" {}

@@ -12,4 +12,17 @@ module "ec2_instance" {
   instance_type  = "${var.instance_type}"
   subnet_id      = "${module.vpc_networking.public_subnets}"
   security_group = "${module.vpc_networking.security_group}"
+  alarm_actions  = "${module.sns.sns_topic}"
+}
+
+/*module "application_load_balancer" {
+  source = "./application_load_balancer"
+  subnets = "${module.vpc_networking.public_subnets}"
+  vpc_id = "${module.vpc_networking.vpc_id}"
+
+}*/
+
+module "sns" {
+  source = "./sns"
+  alarm_actions = "${var.alarm_actions}"
 }

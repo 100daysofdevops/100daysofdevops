@@ -15,3 +15,5 @@ instance_count = 2
 instance_type = "t2.micro"
 my_public_key = "/tmp/id_rsa.pub"
 
+alarm_actions = "laprashant@gmail.com"
+
