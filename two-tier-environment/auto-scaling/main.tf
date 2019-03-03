@@ -49,16 +49,6 @@ resource "aws_security_group_rule" "all_outbound_access" {
   }
 }
 
-/*data "aws_availability_zones" "all" {}
-
-resource "aws_autoscaling_group" "test-asg" {
-  max_size             = 2
-  min_size             = 1
-  launch_configuration = "${aws_launch_configuration.asg-config.name}"
-  availability_zones   = ["${data.aws_availability_zones.all.names}"]
-  target_group_arns = ["${var.load_balancer}"]
-}*/
-
 data "aws_availability_zones" "all" {}
 resource "aws_autoscaling_group" "test-asg" {
   launch_configuration    = "${aws_launch_configuration.asg-config.id}"
