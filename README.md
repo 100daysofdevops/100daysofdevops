@@ -136,9 +136,9 @@ https://medium.com/@devopslearning/100-days-of-devops-day-71-ec2-instance-creati
 Day 92-Choosing Right EC2 Instance Type
 https://medium.com/@devopslearning/100-days-of-devops-day-92-choosing-right-ec2-instance-type-2f5d52bd6c85
 
-Day 98- AWS Lambda with Terraform Code
+Day 98- AWS Lambda with Terraform Code http://100daysofdevops.com/100-days-of-devops-day-98-aws-lambda-with-terraform-code/
 
-Day 99- AWS Boto3
+Day 99- AWS Boto3 http://100daysofdevops.com/100-days-of-devops-day-99-aws-boto3/
 
 Terraform
 Day 15- Introduction to Terraform
