@@ -7,7 +7,7 @@ import argparse
 def search_file_using_extension(path,ext):
   for file in path.iterdir():
     if file.name.endswith(ext):
-      print("The file %s ends with the %s extension"%(file,ext))
+      print("The file %s ends with the %s extension and its size is %d in bytes "%(file,ext,file.lstat().st_size))
   
 def path_exist(path,ext):
   path = pathlib.Path(path)
