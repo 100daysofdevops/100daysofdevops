@@ -4,8 +4,8 @@ import csv
 import argparse
 
 my_parser = argparse.ArgumentParser(description='Reading the log file')
-my_parser.add_argument("logfile",
-                       help='Please enter the logfile to parse',type=argparse.FileType('r'))
+my_parser.add_argument("--l","--logfile",
+                       help='Please enter the logfile to parse',dest="logfile",type=argparse.FileType('r'), required=True)
 args = my_parser.parse_args()
 
 
