@@ -25,7 +25,6 @@ token = os.environ.get("GITHUB_TOKEN")
 reponame = args.reponame
 deleterepo = args.deleterepo
 listrepo = args.listrepo
-createbranch = args.createbranch
 
 
 GITHUB_API_URL = "https://api.github.com/"
