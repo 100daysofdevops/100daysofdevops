@@ -44,4 +44,4 @@ if listrepo:
     output = requests.get("https://api.github.com/users/{}/repos".format(username))
     output = json.loads(output.text)
     for repo in output:
-        pprint(repo["name"]
+        pprint(repo["name"])
