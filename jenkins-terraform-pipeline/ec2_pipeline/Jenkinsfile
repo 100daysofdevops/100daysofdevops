@@ -8,6 +8,8 @@ pipeline {
     }
     environment {
         TF_HOME = tool('terraform')
+        TF_INPUT = "0"
+        TF_IN_AUTOMATION = "TRUE
         TP_LOG = "WARN"
         PATH = "$TF_HOME:$PATH"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
@@ -17,7 +19,7 @@ pipeline {
             stage('TerraformInit'){
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
-                    sh "terraform init -input=false"
+                    sh "terraform init -input=false -verify-plugins=false"
                     sh "echo \$PWD"
                     sh "whoami"
                 }
