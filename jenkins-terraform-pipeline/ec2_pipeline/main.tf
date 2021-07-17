@@ -1,6 +1,6 @@
 provider "aws" {
   region                  = "us-west-2"
-  shared_credentials_file = "/var/jenkins_home/.aws/credentials"
+  #shared_credentials_file = "/var/jenkins_home/.aws/credentials"
 
 }
 
