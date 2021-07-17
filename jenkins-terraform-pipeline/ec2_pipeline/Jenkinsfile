@@ -57,7 +57,6 @@ pipeline {
             }
         }
         
-     if (env.BRANCH_NAME == 'master') {
         stage('TerraformApply'){
             steps {
                 script{
@@ -72,8 +71,7 @@ pipeline {
                     if(apply){
                         dir('jenkins-terraform-pipeline/ec2_pipeline/'){
                             unstash "terraform-plan"
-                            sh 'terraform apply terraform.tfplan'
-                        }     
+                            sh 'terraform apply terraform.tfplan' 
                         }
                     }
                 }
