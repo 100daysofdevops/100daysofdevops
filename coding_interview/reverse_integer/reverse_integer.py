@@ -1,5 +1,6 @@
 # Leet Code Problem: https://leetcode.com/problems/reverse-integer/
 # Modulus and division of negative number shows some unexpected result int(divider/number) and number % -divisor
+# Time Complexity 0(n) and Space Complexity 0(1)
 
 def divide(number, divider):
     return int(number/divider)
