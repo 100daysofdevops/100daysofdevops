@@ -9,4 +9,4 @@ data:
     - name: my-ip-space
       protocol: layer2
       addresses:
-      - 172.18.0.200-172.18.0.250
+      - 172.18.0.200-172.18.0.250 #Add this range based on the output of kubectl get nodes -o wide
