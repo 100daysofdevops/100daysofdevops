@@ -8,7 +8,7 @@ paginator = client.get_paginator('list_users')
 max_key_age=5
 
 def rotate_key(key_creation_date):
-    current_date = datetime.now(timezone.utc)
+    current_date = datetime.now(timezone.est)
     age = (current_date - key_creation_date).days
     return age
 
