@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Id": "SourceIPAccess",
+    "Statement": [
+        {
+            "Sid": "SourceIPAccess",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::Bucket-name",
+                "arn:aws:s3:::Bucket-name/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "<ip-address>"
+                }
+            }
+        }
+    ]
+}
