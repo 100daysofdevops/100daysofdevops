@@ -6,7 +6,7 @@
             "Effect": "Allow",
             "Action": "ec2:*",
             "Resource": [
-                "arn:aws:ec2:*:<AWS-ACCOUNT-ID>:instance/<INSTANCE-ID>
+                "arn:aws:ec2:*:<AWS-ACCOUNT-ID>:instance/<INSTANCE-ID>"
             ]
         }
     ]
