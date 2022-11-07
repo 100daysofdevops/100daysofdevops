@@ -1,0 +1,23 @@
+{
+  "Id": "VPCe",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VPCe",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": [
+        "arn:aws:s3:::example-bucket",
+        "arn:aws:s3:::example-bucket/*"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:SourceVpce": [
+            "vpce-1111111"
+          ]
+        }
+      },
+      "Principal": "*"
+    }
+  ]
+}
