@@ -1,0 +1,35 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::<s3-bucket-name>",
+            "Condition": {
+                "StringLike": {
+                    "s3:prefix": [
+                        "",
+                        "home/",
+                        "home/${aws:username}/*"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::<s3-bucket-name>/home/${aws:username}",
+                "arn:aws:s3:::<s3-bucket-name>/home/${aws:username}/*"
+            ]
+        }
+    ]
+}
