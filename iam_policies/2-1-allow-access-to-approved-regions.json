@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyAllOutsideRequestedRegions",
+      "Effect": "Deny",
+      "NotAction": [
+        "ec2:*",
+        "s3:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "us-west-1",
+            "us-west-2"
+          ]
+        }
+      }
+    }
+  ]
+}
