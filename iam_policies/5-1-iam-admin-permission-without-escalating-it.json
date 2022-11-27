@@ -1,0 +1,89 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "FullAdminAccess",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyAccessToSageMaker",
+      "Effect": "Deny",
+      "Action": [
+        "sagemaker:*"
+    ],
+    "Resource": "*"
+   },
+   {
+     "Sid": "DenyIAMPolicyChanges",
+     "Effect": "Deny",
+     "Action": [
+       "iam:DeletePolicy",
+       "iam:DeletePolicyVersion",
+       "iam:CreatePolicyVersion",
+       "iam:SetDefaultPolicyVersion"
+   ],
+   "Resource": [
+     "arn:aws:iam::REPLACE-AWS-USER:policy/DemoPermissionsBoundary"
+   ]
+  },
+  {
+    "Sid": "DenyRemovalOfPermBoundary",
+    "Effect": "Deny",
+    "Action": [
+      "iam:DeleteUserPermissionsBoundary",
+      "iam:DeleteRolePermissionsBoundary"
+   ],
+   "Resource": [
+     "arn:aws:iam::REPLACE-AWS-USER:user/*",
+     "arn:aws:iam::REPLACE-AWS-USER:role/*"
+   ],
+   "Condition": {
+     "StringEquals": {
+       "iam:PermissionsBoundary": "arn:aws:iam::REPLACE-AWS-USER:policy/DemoPermissionsBoundary"
+     }
+    }
+   },
+   {
+     "Sid": "DenyAccessIfRequiredPermBoundaryIsNotBeingAttached",
+     "Effect": "Deny",
+     "Action": [
+     "iam:PutUserPermissionsBoundary",
+     "iam:PutRolePermissionsBoundary"
+   ],
+   "Resource": [
+     "arn:aws:iam::REPLACE-AWS-USER:user/*",
+     "arn:aws:iam::REPLACE-AWS-USER:role/*"
+   ],
+   "Condition": {
+     "StringNotEquals": {
+       "iam:PermissionsBoundary": "arn:aws:iam::REPLACE-AWS-USER:policy/DemoPermissionsBoundary"
+     }
+    }
+  },
+  {
+    "Sid": "DenyUserAndRoleCreationIfPermBoundaryNotAttached",
+    "Effect": "Deny",
+    "Action": [
+      "iam:CreateUser",
+      "iam:CreateRole"
+  ],
+  "Resource": [
+    "arn:aws:iam::REPLACE-AWS-USER:user/*",
+    "arn:aws:iam::REPLACE-AWS-USER:role/*"
+  ],
+  "Condition": {
+    "StringNotEquals": {
+      "iam:PermissionsBoundary": "arn:aws:iam::REPLACE-AWS-USER:policy/DemoPermissionsBoundary"
+    }
+   }
+ },
+ {
+   "Sid": "DenyIAMActions",
+   "Effect": "Deny",
+   "Action": "iam:PassRole",
+   "Resource": "arn:aws:iam::REPLACE-AWS-USER:role/*"
+  }
+ ]
+}
