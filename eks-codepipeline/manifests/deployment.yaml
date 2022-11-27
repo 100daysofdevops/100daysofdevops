@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-eks-pipeline-deployment
+  labels:
+    app: my-eks-pipeline-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-eks-pipeline-deployment
+  template:
+    metadata:
+      labels:
+        app: my-eks-pipeline-deployment
+    spec:
+      containers:
+        - name: my-eks-pipeline-deployment
+          image: CONTAINER_IMAGE
+          ports:
+            - containerPort: 80
