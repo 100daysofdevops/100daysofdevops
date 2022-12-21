@@ -3,25 +3,6 @@
 # This script should work on both CentOS and macOS
 # Author: Prashant Lakhera(laprashant@gmail.com)
 
-# Check if top command is present
-if command -v top >/dev/null 2>&1; then
-  echo "top command is present"
-else
-  echo "top command is not present. Installing..."
-  # Install top command
-  if [ -f /etc/centos-release ]; then
-    # CentOS
-    sudo yum install -y procps-ng
-  elif [ -f /etc/lsb-release ]; then
-    # Ubuntu
-    sudo apt-get update
-    sudo apt-get install -y procps
-  else
-    # Unsupported OS
-    echo "Unsupported operating system"
-    exit 1
-  fi
-fi
 
 # Function to list top 5 CPU consuming process
 list_top_cpu_consuming_processes() {
