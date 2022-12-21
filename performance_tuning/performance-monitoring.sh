@@ -15,7 +15,7 @@ else
   elif [ -f /etc/lsb-release ]; then
     # Ubuntu
     sudo apt-get update
-    sudo apt-get install -y top
+    sudo apt-get install -y procps
   else
     # Unsupported OS
     echo "Unsupported operating system"
