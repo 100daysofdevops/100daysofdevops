@@ -77,6 +77,7 @@ rx_error_count=$(ifconfig $interface | grep "RX errors" |awk '{print $3}')
 tx_error_count=$(ifconfig $interface | grep "TX errors" |awk '{print $3}')
 
 # Check if either error count is greater than zero
+# Remember these counter only get reset after reboot, so you may get some false alarm. Check this thread for more reference https://unix.stackexchange.com/questions/164057/how-can-i-manually-reset-rx-tx-counters-in-ifconfig-output-without-impacting-d 
 if [[ $rx_error_count -gt 0 || $tx_error_count -gt 0 ]]; then
   #Print a message Network error count is too high
   echo -e "\033[1;31m Network Error is currently for Revieve Error: $rx_error_count and Transmit Error: $tx_error_count, which is higher than the acceptable range \033[0m" >&2
