@@ -7,7 +7,7 @@
 # Function to list top 5 CPU consuming process
 list_top_cpu_consuming_processes() {
   # Get the top 5 processes by CPU usage
-  top_five_cpu_processes=$(ps -eo pcpu,pid,user,args | sort -k 1 -r | head -n 6)
+  top_five_cpu_processes=$(ps -eo pcpu,pid,user,args --no-headers | sort -k 1 -r | head -n 5)
 
   # Print the results
   echo "###############################################################################"
@@ -18,7 +18,7 @@ list_top_cpu_consuming_processes() {
 # Function to list the top 5 processes by memory usage
 list_top_memory_consuming_processes() {
   # Get the top 5 processes by memory usage
-  top_five_memory_processes=$(ps -eo pmem,pid,user,args | sort -k 1 -r | head -n 6)
+  top_five_memory_processes=$(ps -eo pmem,pid,user,args --no-headers | sort -k 1 -r | head -n 5)
 
   # Print the results
   echo "###############################################################################"
@@ -50,7 +50,7 @@ fi
 # Function to list the top 5 processes by I/O usage
 list_top_io_consuming_processes() {
   # Get the top 5 processes by I/O usage
-  top_five_io_processes=$(sudo iotop -o -b -n 6)
+  top_five_io_processes=$(sudo iotop -o -b -n 5)
 
   # Print the results
   echo "###############################################################################"
@@ -82,7 +82,7 @@ fi
 # Function to list the top 5 processes by network usage
 list_top_network_consuming_processes() {
   # Get the top 5 processes by network usage
-  top_five_network_processes=$(sudo iftop -P -n -t -s 6)
+  top_five_network_processes=$(sudo iftop -P -n -t -s 5)
 
   # Print the results
   echo "###############################################################################"
