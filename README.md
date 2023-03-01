@@ -1,4 +1,4 @@
-# 100daysofdevops 
+# 100 Days of DevOps 
 
 ## AWS
 - [ ] Day 1 - Introduction to CloudWatch Metrics
