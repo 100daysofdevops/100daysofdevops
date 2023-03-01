@@ -228,7 +228,6 @@ https://medium.com/@devopslearning/100-days-of-devops-day-73-introduction-to-ans
 
 ## GIT
 - [ ] Day 74 - Introduction to GIT
-
 https://medium.com/@devopslearning/100-days-of-devops-day-74-introduction-to-git-9374bafb08b6
 
 ## Docker & Kubernetes
