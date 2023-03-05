@@ -1,5 +1,19 @@
 # 100 Days of DevOps 
 
+## Table of Contents  
+[AWS](#aws)<a name="aws"/>\
+[Terraform](#terraform)<a name="terraform"/>\
+[CI-CD](#ci-cd)<a name="ci-cd"/>\
+[BASH SCRIPTING](#bash-scripting)<a name="bash scripting"/>\
+[Linux](#linux)<a name="linux"/>\
+[Ansible](#ansible)<a name="ansible"/>\
+[GIT](#git)<a name="git"/>\
+[Docker & Kubernetes](#docker--kubernetes)<a name="docker & kubernetes"/>\
+[Jenkins](#jenkins)<a name="jenkins"/>\
+[Python](#python)<a name="python"/>\
+[Miscellaneous](#miscellaneous)<a name="miscellaneous"/>
+
+
 ## AWS
 - [ ] Day 1 - Introduction to CloudWatch Metrics
 https://medium.com/faun/100-days-of-devops-day-1-introduction-to-cloudwatch-metrics-b04be36307a8
