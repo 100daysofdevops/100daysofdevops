@@ -6,12 +6,14 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: Validate Shell Script
         run: |
           # Install shellcheck
           sudo apt-get update
           sudo apt-get install -y shellcheck
           # Run shellcheck on the script
-          shellcheck environment_setup.sh
-          shellcheck performance-monitoring.sh
+          find . -type f \( \
+          -name "environment_setup.sh" -o \
+          -name "performance-monitoring*.sh" \
+          \) -print0 | xargs -0 -n1 shellcheck
