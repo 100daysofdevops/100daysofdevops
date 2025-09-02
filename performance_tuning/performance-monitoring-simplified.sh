@@ -30,7 +30,7 @@ memory_utilization=$(echo "scale=2; ($total_memory - $available_memory)/$total_m
 # Compare the memory utilization with the threshold
 if (( $(echo "$memory_utilization > $THRESHOLD" | bc -l) ))
 then 
-    echo -e "\033[1;32m Memory utilization is above the threshold!!! Memory utilization is: $utilization% \033[0m"
+    echo -e "\033[1;32m Memory utilization is above the threshold!!! Memory utilization is: $memory_utilization% \033[0m"
 else
     echo -e "\033[1;32m Memory utilizationis currently $memory_utilization, which is within the acceptable range.\033[0m"
 fi 
@@ -71,10 +71,10 @@ fi
 interface=$(ifconfig |head -1|awk '{print $1}' |cut -f1 -d:)
 
 # Get the RX error count
-rx_error_count=$(ifconfig $interface | grep "RX errors" |awk '{print $3}')
+rx_error_count=$(ifconfig "$interface" | grep "RX errors" |awk '{print $3}')
 
 # Get the TX error count
-tx_error_count=$(ifconfig $interface | grep "TX errors" |awk '{print $3}')
+tx_error_count=$(ifconfig "$interface" | grep "TX errors" |awk '{print $3}')
 
 # Check if either error count is greater than zero
 # Remember these counter only get reset after reboot, so you may get some false alarm. Check this thread for more reference https://unix.stackexchange.com/questions/164057/how-can-i-manually-reset-rx-tx-counters-in-ifconfig-output-without-impacting-d 
